@@ -1,7 +1,7 @@
 {
     "containerDefinitions": [
             {
-                "name": "container-c",
+                "name": "task-planner",
                 "image": "ovoh1/book-inventory:v_%BUILD_NUMBER%",
                 "cpu": 0,
                 "memory": 1024,
@@ -20,14 +20,14 @@
                 "logConfiguration": {
                     "logDriver": "awslogs",
                     "options": {
-                        "awslogs-group": "/ecs/ecs-fargate-c",
+                        "awslogs-group": "/ecs/new-ecs-fargate",
                         "awslogs-region": "us-east-1",
                         "awslogs-stream-prefix": "ecs"
                     }
                 }
             }
         ],
-        "family": "ecs-fargate-c",
+        "family": "new-ecs-fargate",
         "taskRoleArn": "arn:aws:iam::095861561296:role/ecs-task-role",
         "executionRoleArn": "arn:aws:iam::095861561296:role/ecs-task-role",
         "networkMode": "awsvpc",
