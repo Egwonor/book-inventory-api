@@ -36,20 +36,20 @@ pipeline {
     stage('Start Task on ECS Cluster') {
       steps{
         sh '''#!/bin/bash -x
-          SERVICE_NAME="bookservice"
+          SERVICE_NAME="service-c-1"
           IMAGE_VERSION="v_"${BUILD_NUMBER}
-          TASK_FAMILY="booktask"
+          TASK_FAMILY="ecs-fargate-c"
           
           # Create a new task definition for this build
           sed -e "s;%BUILD_NUMBER%;${BUILD_NUMBER};g" task-def-fargate.json > task-def-fargate-v_${BUILD_NUMBER}.json
           aws ecs register-task-definition --cli-input-json file://task-def-fargate-v_${BUILD_NUMBER}.json
           
           # Update the service with the new task definition and desired count
-          TASK_REVISION=`aws ecs describe-task-definition --task-definition booktask | egrep "revision" | tr "/" " " | awk '{print $2}' | sed 's/"$//'`
+          TASK_REVISION=`aws ecs describe-task-definition --task-definition ecs-fargate-c | egrep "revision" | tr "/" " " | awk '{print $2}' | sed 's/"$//'`
           echo $TASK_REVISION
           DESIRED_COUNT="1"
           
-          aws ecs update-service --cluster bookCluster --service ${SERVICE_NAME} --task-definition ${TASK_FAMILY} --desired-count ${DESIRED_COUNT}'''
+          aws ecs update-service --cluster ecs-fargate --service ${SERVICE_NAME} --task-definition ${TASK_FAMILY} --desired-count ${DESIRED_COUNT}'''
       }
     }
     stage('Remove Unused docker image') {
