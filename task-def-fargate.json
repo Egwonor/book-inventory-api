@@ -27,7 +27,7 @@
                 }
             }
         ],
-        "family": "bookservice",
+        "family": "booktask",
         "taskRoleArn": "arn:aws:iam::095861561296:role/ecs-task-role",
         "executionRoleArn": "arn:aws:iam::095861561296:role/ecs-task-role",
         "networkMode": "awsvpc",
