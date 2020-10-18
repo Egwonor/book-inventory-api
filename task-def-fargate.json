@@ -20,7 +20,7 @@
                 "logConfiguration": {
                     "logDriver": "awslogs",
                     "options": {
-                        "awslogs-group": "/ecs/booktask",
+                        "awslogs-group": "/ecs/bookservice",
                         "awslogs-region": "us-east-1",
                         "awslogs-stream-prefix": "ecs"
                     }
