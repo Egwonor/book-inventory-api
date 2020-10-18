@@ -1,7 +1,7 @@
 {
     "containerDefinitions": [
             {
-                "name": "task-planner",
+                "name": "bookContainer",
                 "image": "ovoh1/book-inventory:v_%BUILD_NUMBER%",
                 "cpu": 0,
                 "memory": 1024,
@@ -20,14 +20,14 @@
                 "logConfiguration": {
                     "logDriver": "awslogs",
                     "options": {
-                        "awslogs-group": "/ecs/new-ecs-fargate",
+                        "awslogs-group": "/ecs/booktask",
                         "awslogs-region": "us-east-1",
                         "awslogs-stream-prefix": "ecs"
                     }
                 }
             }
         ],
-        "family": "new-ecs-fargate",
+        "family": "bookservice",
         "taskRoleArn": "arn:aws:iam::095861561296:role/ecs-task-role",
         "executionRoleArn": "arn:aws:iam::095861561296:role/ecs-task-role",
         "networkMode": "awsvpc",
