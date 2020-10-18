@@ -2,7 +2,7 @@
     "containerDefinitions": [
             {
                 "name": "container-c",
-                "image": "ovoh1/book-inventory:v_%BUILD_NUMBER%",
+                "image": "ovoh1/book-inventory-api:v_%BUILD_NUMBER%",
                 "cpu": 0,
                 "memory": 1024,
                 "memoryReservation": 512,
